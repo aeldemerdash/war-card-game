@@ -7,11 +7,28 @@
 	<name>War Card Game</name>
 	<description>A simple card game of chance called 'War' written in Java 8.</description>
 	<packaging>jar</packaging>
+	<url>https://github.com/rpaulkennedy/war-card-game</url>
 	<organization>
 		<name>R. Paul Kennedy</name>
 		<url>https://github.com/rpaulkennedy</url>
 	</organization>
-	<url>https://github.com/rpaulkennedy/war-card-game</url>
+	<developers>
+		<developer>
+			<email>rpaulkennedy@gmail.com</email>
+			<name>R. Paul Kennedy</name>
+			<url>https://github.com/rpaulkennedy</url>
+			<id>rpaulkennedy</id>
+		</developer>
+	</developers>
+	<issueManagement>
+		<url>https://github.com/rpaulkennedy/war-card-game/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	<scm>
+		<url>https://github.com/rpaulkennedy/war-card-game</url>
+		<connection>scm:git:git://github.com/rpaulkennedy/war-card-game</connection>
+		<developerConnection>scm:git:git@github.com:rpaulkennedy/war-card-game</developerConnection>
+	</scm>	
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -134,11 +151,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<issueManagement>
-		<url>https://github.com/rpaulkennedy/war-card-game/issues</url>
-		<system>GitHub</system>
-	</issueManagement>
-	<scm>
-		<url>https://github.com/rpaulkennedy/war-card-game.git</url>
-	</scm>
 </project>
