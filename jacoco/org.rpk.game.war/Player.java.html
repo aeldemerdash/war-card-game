@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">War Card Game</a> &gt; <a href="index.source.html" class="el_package">org.rpk.game.war</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package org.rpk.game.war;
+
+
+import static java.util.stream.Collectors.toList;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.stream.IntStream;
+
+import org.rpk.game.war.card.Card;
+import org.rpk.game.war.card.CardTable;
+
+/**
+ * Player of the game.
+ *
+ * @author R. Paul Kennedy 
+ */
+public class Player {
+	
+	public static final String 
+		Player1Name = &quot;Player&quot;
+		, Player2Name = &quot;Computer&quot;;
+
+	/** Cards held by player. */
+	protected final Queue&lt;Card&gt; hand;
+
+	/** Proper name of player. */
+	protected final String name;
+
+<span class="fc" id="L34">	public Player(String name) {</span>
+<span class="fc" id="L35">		hand = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L36">		this.name = name;</span>
+<span class="fc" id="L37">	}</span>
+
+	public Queue&lt;Card&gt; getHand() {
+<span class="fc" id="L40">		return hand;</span>
+	}
+
+	public String getName() {
+<span class="fc" id="L44">		return name;</span>
+	}
+
+	public int getScore() {
+<span class="fc" id="L48">		return getHand().size();</span>
+	}
+
+	/** Put a card on the table for normal play */
+	public void playCard(Stack&lt;Card&gt; tableCards) {
+<span class="fc" id="L53">		tableCards.push(getHand().remove());</span>
+<span class="fc" id="L54">	}</span>
+
+	/** Put 3 cars on the table for a war */
+	public void playThreeCards(Stack&lt;Card&gt; tableCards) {
+<span class="fc" id="L58">		IntStream</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		.range(0, getHand().size() &lt; 3 ? getHand().size() : 3)</span>
+<span class="fc" id="L60">		.forEachOrdered(i -&gt; playCard(tableCards));</span>
+<span class="fc" id="L61">	}</span>
+
+	/**
+	 * Takes all the cards from the card table, shuffles them, and puts them 
+	 * in the bottom of the player's hand.
+	 * @param table The card table
+	 * @param random  
+	 */
+	public void collectCards(CardTable table) {
+		// Take cards
+<span class="fc" id="L71">		final List&lt;Card&gt; wonCards = </span>
+<span class="fc" id="L72">			Arrays.asList(table.takePlayer1Cards(), table.takePlayer2Cards())</span>
+<span class="fc" id="L73">				.parallelStream()</span>
+<span class="fc" id="L74">				.flatMap(x -&gt; x.parallelStream())</span>
+<span class="fc" id="L75">				.collect(toList());</span>
+		
+		// Shuffle cards
+<span class="fc" id="L78">		Collections.shuffle(wonCards);</span>
+		
+		// Add cards to hand
+<span class="fc" id="L81">		getHand().addAll(wonCards);</span>
+<span class="fc" id="L82">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Card.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">War Card Game</a> &gt; <a href="index.source.html" class="el_package">org.rpk.game.war.card</a> &gt; <span class="el_source">Card.java</span></div><h1>Card.java</h1><pre class="source lang-java linenums">package org.rpk.game.war.card;
+
+/**
+ * A playing card.
+ * 
+ * @author R. Paul Kennedy 
+ */
+public class Card implements Comparable&lt;Card&gt; {
+
+	protected final Rank rank;
+	protected final Suit suit;
+	
+	/** String representation of a card (Rank symbol + Suit symbol) */
+	protected final String symbol;
+
+<span class="fc" id="L16">	public Card(Rank rank, Suit suit) {</span>
+<span class="fc" id="L17">		this.rank = rank;</span>
+<span class="fc" id="L18">		this.suit = suit;</span>
+<span class="fc" id="L19">		this.symbol = String.format(&quot;%s%s&quot;, rank.symbol(), suit.symbol());</span>
+<span class="fc" id="L20">	}</span>
+
+	public Suit getSuit() {
+<span class="fc" id="L23">		return suit;</span>
+	}
+
+	public Rank getRank() {
+<span class="fc" id="L27">		return rank;</span>
+	}
+
+	public String getSymbol() {
+<span class="fc" id="L31">		return this.symbol;</span>
+	}
+	
+	/**
+	 * @return Ordinal rank value regardless of suit.
+	 */
+	public int getValue() {
+<span class="fc" id="L38">		return this.getRank().ordinal();</span>
+	}
+
+	public String toString() {
+<span class="fc" id="L42">		return this.getSymbol();</span>
+	}
+
+	@Override
+	public int compareTo(Card that) {
+		final Integer 
+<span class="fc" id="L48">			thisValue = this.getValue()</span>
+<span class="fc" id="L49">			, thatValue = that.getValue();</span>
+<span class="fc" id="L50">		return thisValue.compareTo(thatValue);</span>
+	}
+
+	@Override
+	public boolean equals(Object that) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (this == that) {</span>
+<span class="fc" id="L56">			return true;</span>
+		}
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		else if (!this.getClass().isInstance(that)) {</span>
+<span class="fc" id="L59">			return false;</span>
+		}
+		else {
+<span class="fc" id="L62">			return this.getSymbol().equals(((Card)that).getSymbol());</span>
+		}
+	}
+
+	@Override
+	public int hashCode() {
+<span class="fc" id="L68">		return getSymbol().hashCode();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

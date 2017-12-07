@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Deck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">War Card Game</a> &gt; <a href="index.source.html" class="el_package">org.rpk.game.war.card</a> &gt; <span class="el_source">Deck.java</span></div><h1>Deck.java</h1><pre class="source lang-java linenums">package org.rpk.game.war.card;
+
+import static java.util.stream.Collectors.toList;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Deck of cards.
+ * 
+ * @author R. Paul Kennedy 
+ */
+public class Deck {
+
+	protected final List&lt;Card&gt; cards;
+
+<span class="fc" id="L18">	public Deck() {</span>
+<span class="fc" id="L19">		this.cards = createCards();</span>
+<span class="fc" id="L20">	}</span>
+
+	public Deck shuffle() {
+<span class="fc" id="L23">		Collections.shuffle(cards);</span>
+<span class="fc" id="L24">		return this;</span>
+	}
+
+	public List&lt;Card&gt; getCards() {
+<span class="fc" id="L28">		return this.cards;</span>
+	}
+
+	public String toString() {
+<span class="fc" id="L32">		return String</span>
+<span class="fc" id="L33">			.join(&quot;,&quot;, getCards()</span>
+<span class="fc" id="L34">				.stream()</span>
+<span class="fc" id="L35">				.map(c -&gt; c.toString())</span>
+<span class="fc" id="L36">				.collect(toList()));</span>
+	}
+	
+	/** Creates a card for each suit for each rank. */
+	protected List&lt;Card&gt; createCards() {
+<span class="fc" id="L41">		List&lt;Suit&gt; suits = Arrays.asList(Suit.values());</span>
+<span class="fc" id="L42">		List&lt;Rank&gt; ranks = Arrays.asList(Rank.values());</span>
+<span class="fc" id="L43">		return suits.stream().map(suit -&gt; </span>
+<span class="fc" id="L44">			ranks.stream().map(rank -&gt; </span>
+<span class="fc" id="L45">				new Card(rank, suit)</span>
+<span class="fc" id="L46">			).collect(toList())</span>
+<span class="fc" id="L47">		).flatMap(cards -&gt; cards.stream()).collect(toList());</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

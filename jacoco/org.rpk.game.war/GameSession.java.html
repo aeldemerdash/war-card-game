@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameSession.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">War Card Game</a> &gt; <a href="index.source.html" class="el_package">org.rpk.game.war</a> &gt; <span class="el_source">GameSession.java</span></div><h1>GameSession.java</h1><pre class="source lang-java linenums">package org.rpk.game.war;
+
+import static org.rpk.game.war.Player.Player1Name;
+import static org.rpk.game.war.Player.Player2Name;
+
+import org.rpk.game.war.card.CardTable;
+import org.rpk.game.war.card.Dealer;
+
+/**
+ * Holds game session information.
+ *
+ * @author R. Paul Kennedy
+ */
+public class GameSession {
+	protected final Player player1;
+	protected final Player player2;
+	protected final CardTable table;
+	protected final boolean skipPlayerInput;
+
+<span class="fc" id="L20">	public GameSession(Player player1, Player player2, CardTable table, boolean skipPlayerInput) {</span>
+<span class="fc" id="L21">		this.player1 = player1;</span>
+<span class="fc" id="L22">		this.player2 = player2;</span>
+<span class="fc" id="L23">		this.table = table;</span>
+<span class="fc" id="L24">		this.skipPlayerInput = skipPlayerInput;</span>
+<span class="fc" id="L25">	}</span>
+
+	public Player getPlayer1() {
+<span class="fc" id="L28">		return player1;</span>
+	}
+
+	public Player getPlayer2() {
+<span class="fc" id="L32">		return player2;</span>
+	}
+
+	public CardTable getTable() {
+<span class="fc" id="L36">		return table;</span>
+	}
+
+	public boolean isSkipPlayerInput() {
+<span class="fc" id="L40">		return skipPlayerInput;</span>
+	}
+
+	public static GameSession newInstance(boolean skipPlayerInput) {
+<span class="fc" id="L44">		Player player1 = new Player(Player1Name);</span>
+<span class="fc" id="L45">		Player player2 = new Player(Player2Name);</span>
+<span class="fc" id="L46">		new Dealer().deal(player1, player2);</span>
+<span class="fc" id="L47">		CardTable table = new CardTable();</span>
+<span class="fc" id="L48">		return new GameSession(player1, player2, table, skipPlayerInput);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
