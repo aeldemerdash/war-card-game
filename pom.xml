@@ -9,10 +9,8 @@
 	<packaging>jar</packaging>
 	<organization>
 		<name>R. Paul Kennedy</name>
-		<url>https://gitlab.com/rpaulkennedy</url>
 	</organization>
 	<issueManagement>
-		<url>incoming+rpaulkennedy/war-card-game@gitlab.com</url>
 		<system>Email</system>
 	</issueManagement>
 	<licenses>
@@ -26,6 +24,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<github.global.server>github</github.global.server>
 	</properties>
 	<build>
 		<finalName>war-card-game</finalName>
@@ -79,8 +78,22 @@
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
-
-
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.11</version>
+				<configuration>
+					<message>Creating site for ${project.version}</message>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<reporting>
