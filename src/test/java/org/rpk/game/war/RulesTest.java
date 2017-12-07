@@ -56,22 +56,22 @@ public class RulesTest {
 	}
 	
 	public void getRoundResultPlayer1Won() {
-		when(table.peekPlayer1Card()).thenReturn(aceOfSpades);
-		when(table.peekPlayer2Card()).thenReturn(deucdeOfDiamonds);
+		when(table.peekPlayer1CardStack()).thenReturn(aceOfSpades);
+		when(table.peekPlayer2CardStack()).thenReturn(deucdeOfDiamonds);
 		final Result result = Rules.getRoundResult(session);
 		assertEquals(result, Player1Won);
 	}
 
 	public void getRoundResultPlayer2Won() {
-		when(table.peekPlayer1Card()).thenReturn(deucdeOfDiamonds);
-		when(table.peekPlayer2Card()).thenReturn(aceOfSpades);
+		when(table.peekPlayer1CardStack()).thenReturn(deucdeOfDiamonds);
+		when(table.peekPlayer2CardStack()).thenReturn(aceOfSpades);
 		final Result result = Rules.getRoundResult(session);
 		assertEquals(result, Player2Won);
 	}
 	
 	public void getRoundResultTie() {
-		when(table.peekPlayer1Card()).thenReturn(aceOfSpades);
-		when(table.peekPlayer2Card()).thenReturn(aceOfSpades);
+		when(table.peekPlayer1CardStack()).thenReturn(aceOfSpades);
+		when(table.peekPlayer2CardStack()).thenReturn(aceOfSpades);
 		final Result result = Rules.getRoundResult(session);
 		assertEquals(result, Tie);
 	}

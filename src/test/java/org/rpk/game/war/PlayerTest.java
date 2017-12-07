@@ -41,22 +41,22 @@ public class PlayerTest {
 	public void beforeMethod() {
 		MockitoAnnotations.initMocks(this);
 		player = new Player(Player1Name);
-		when(table.getPlayer1Cards()).thenReturn(player1CardStack);
-		when(table.getPlayer2Cards()).thenReturn(player2CardStack);
+		when(table.getPlayer1CardStack()).thenReturn(player1CardStack);
+		when(table.getPlayer2CardStack()).thenReturn(player2CardStack);
 	}
 
 	public void collectCardsSinglePlay() {
-		when(table.takePlayer1Cards()).thenReturn(Arrays.asList(card1));
-		when(table.takePlayer2Cards()).thenReturn(Arrays.asList(card2));
+		when(table.takePlayer1CardStack()).thenReturn(Arrays.asList(card1));
+		when(table.takePlayer2CardStack()).thenReturn(Arrays.asList(card2));
 		player.collectCards(table);
 		assertEquals(player.getHand().size(), 2);
 		assertTrue(player.getHand().containsAll(Arrays.asList(card1, card2)));
 	}
 
 	public void collectCardsAfterWar() {
-		when(table.takePlayer1Cards()).thenReturn(
+		when(table.takePlayer1CardStack()).thenReturn(
 			Arrays.asList(card1, card2, card3, card4, card5));
-		when(table.takePlayer2Cards()).thenReturn(
+		when(table.takePlayer2CardStack()).thenReturn(
 			Arrays.asList(card6, card7, card8, card9, card10));
 		player.collectCards(table);
 		assertEquals(player.getHand().size(), 10);
@@ -80,7 +80,7 @@ public class PlayerTest {
 
 	public void playCard() {
 		player.getHand().add(card1);
-		player.playCard(table.getPlayer1Cards());
+		player.playCard(table.getPlayer1CardStack());
 		verify(player1CardStack, times(1)).push(any(Card.class));
 		verify(player1CardStack, times(1)).push(card1);
 	}
@@ -88,7 +88,7 @@ public class PlayerTest {
 	public void playThreeCards() {
 		List<Card> cards = Arrays.asList(card1, card2, card3);
 		player.getHand().addAll(cards);
-		player.playThreeCards(table.getPlayer1Cards());
+		player.playThreeCards(table.getPlayer1CardStack());
 		verify(player1CardStack, times(3)).push(any(Card.class));
 		cards.stream().forEachOrdered(card -> 
 			verify(player1CardStack, times(1)).push(card));
@@ -98,7 +98,7 @@ public class PlayerTest {
 	public void playThreeCardsWithLessCards() {
 		List<Card> cards = Arrays.asList(card1, card2);
 		player.getHand().addAll(cards);
-		player.playThreeCards(table.getPlayer1Cards());
+		player.playThreeCards(table.getPlayer1CardStack());
 		verify(player1CardStack, times(2)).push(any(Card.class));
 		cards.stream().forEachOrdered(card -> 
 			verify(player1CardStack, times(1)).push(card));

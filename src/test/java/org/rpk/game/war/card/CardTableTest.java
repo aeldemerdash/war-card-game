@@ -33,55 +33,55 @@ public class CardTableTest {
 		table = new CardTable();
 	}
 
-	public void getPlayer1Cards() {
-		assertNotNull(table.getPlayer1Cards());
+	public void getPlayer1CardStack() {
+		assertNotNull(table.getPlayer1CardStack());
 	}
 
-	public void getPlayer2Cards() {
-		assertNotNull(table.getPlayer2Cards());
+	public void getPlayer2CardStack() {
+		assertNotNull(table.getPlayer2CardStack());
 	}
 
 	@Test(expectedExceptions = EmptyStackException.class)
-	public void peekPlayer1CardEmpty() {
-		table.peekPlayer1Card();
+	public void peekPlayer1CardStackEmpty() {
+		table.peekPlayer1CardStack();
 	}
 	
-	public void takePlayer1Cards() {
-		table.getPlayer1Cards().push(card1);
-		List<Card> cards = table.takePlayer1Cards();
-		assertEquals(table.getPlayer1Cards().size(), 0);
+	public void takePlayer1CardStack() {
+		table.getPlayer1CardStack().push(card1);
+		List<Card> cards = table.takePlayer1CardStack();
+		assertEquals(table.getPlayer1CardStack().size(), 0);
 		assertEquals(cards.size(), 1);
 		assertTrue(cards.contains(card1));
 	}
 	
-	public void takePlayer2Cards() {
-		table.getPlayer2Cards().push(card1);
-		List<Card> cards = table.takePlayer2Cards();
-		assertEquals(table.getPlayer2Cards().size(), 0);
+	public void takePlayer2CardStack() {
+		table.getPlayer2CardStack().push(card1);
+		List<Card> cards = table.takePlayer2CardStack();
+		assertEquals(table.getPlayer2CardStack().size(), 0);
 		assertEquals(cards.size(), 1);
 		assertTrue(cards.contains(card1));
 	}
 	
-	public void peekPlayer1Card() {
-		table.getPlayer1Cards().push(card1);
-		assertSame(table.peekPlayer1Card(), card1);
-		table.getPlayer1Cards().push(card2);
-		assertSame(table.peekPlayer1Card(), card2);
-		table.getPlayer1Cards().pop();
-		assertSame(table.peekPlayer1Card(), card1);
+	public void peekPlayer1CardStack() {
+		table.getPlayer1CardStack().push(card1);
+		assertSame(table.peekPlayer1CardStack(), card1);
+		table.getPlayer1CardStack().push(card2);
+		assertSame(table.peekPlayer1CardStack(), card2);
+		table.getPlayer1CardStack().pop();
+		assertSame(table.peekPlayer1CardStack(), card1);
 	}
 
 	@Test(expectedExceptions = EmptyStackException.class)
-	public void peekPlayer2CardEmpty() {
-		table.peekPlayer2Card();
+	public void peekPlayer2CardStackEmpty() {
+		table.peekPlayer2CardStack();
 	}
 
-	public void peekPlayer2Card() {
-		table.getPlayer2Cards().push(card1);
-		assertSame(table.peekPlayer2Card(), card1);
-		table.getPlayer2Cards().push(card2);
-		assertSame(table.peekPlayer2Card(), card2);
-		table.getPlayer2Cards().pop();
-		assertSame(table.peekPlayer2Card(), card1);
+	public void peekPlayer2CardStack() {
+		table.getPlayer2CardStack().push(card1);
+		assertSame(table.peekPlayer2CardStack(), card1);
+		table.getPlayer2CardStack().push(card2);
+		assertSame(table.peekPlayer2CardStack(), card2);
+		table.getPlayer2CardStack().pop();
+		assertSame(table.peekPlayer2CardStack(), card1);
 	}
 }

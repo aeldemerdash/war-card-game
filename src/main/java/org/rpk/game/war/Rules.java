@@ -33,10 +33,10 @@ public class Rules {
 	 */
 	public static Result getRoundResult(GameSession session) {
 		// Apply the rules
-		if (thisCardWon(session.getTable().peekPlayer1Card(), session.getTable().peekPlayer2Card())) {
+		if (thisCardWon(session.getTable().peekPlayer1CardStack(), session.getTable().peekPlayer2CardStack())) {
 			return Player1Won;
 		}
-		else if (thatCardWon(session.getTable().peekPlayer1Card(), session.getTable().peekPlayer2Card())) {
+		else if (thatCardWon(session.getTable().peekPlayer1CardStack(), session.getTable().peekPlayer2CardStack())) {
 			return Player2Won;
 		}
 		else {

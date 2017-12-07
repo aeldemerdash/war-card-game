@@ -71,14 +71,14 @@ public class WarGame {
 	}
 
 	protected static void playCards(GameSession session) {
-		session.getPlayer1().playCard(session.getTable().getPlayer1Cards());
-		session.getPlayer2().playCard(session.getTable().getPlayer2Cards());
+		session.getPlayer1().playCard(session.getTable().getPlayer1CardStack());
+		session.getPlayer2().playCard(session.getTable().getPlayer2CardStack());
 	}
 
 	protected static void printCardValues(GameSession session) {
 		print("Cards Played:");
-		print("%s {%s} | %s {%s}", session.getPlayer1().getName(), session.getTable().peekPlayer1Card(),
-				session.getPlayer2().getName(), session.getTable().peekPlayer2Card());
+		print("%s {%s} | %s {%s}", session.getPlayer1().getName(), session.getTable().peekPlayer1CardStack(),
+				session.getPlayer2().getName(), session.getTable().peekPlayer2CardStack());
 	}
 	
 	protected static void evaluateRound(GameSession session) {
@@ -129,8 +129,8 @@ public class WarGame {
 	}
 	
 	protected static void play3Cards(GameSession session) {
-		session.getPlayer1().playThreeCards(session.getTable().getPlayer1Cards());
-		session.getPlayer2().playThreeCards(session.getTable().getPlayer2Cards());		
+		session.getPlayer1().playThreeCards(session.getTable().getPlayer1CardStack());
+		session.getPlayer2().playThreeCards(session.getTable().getPlayer2CardStack());		
 	}
 	
 	protected static void printOutro(GameSession session) {
