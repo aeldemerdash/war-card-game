@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rpaulkennedy/war-card-game.svg?branch=master)](https://travis-ci.org/rpaulkennedy/war-card-game)
+
 # War Card Game
 A simple console-based card game of chance called 'War' written in Java 8.  
 
