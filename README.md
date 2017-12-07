@@ -23,7 +23,7 @@ A simple console-based card game of chance called 'War' written in Java 8.
 * [Issue Management](https://github.com/rpaulkennedy/war-card-game/issues)
 
 ## Usage
- 1. Ensure *Java 8* is installed and on your classpath.
+ 1. Ensure *Java 8* is installed and can be executed from the command line.
  2. In a console, go to the directory of *war-card-game.jar* from the build *target* folder.
  3. Enter *java -jar war-card-game.jar*.
      1. Alternatively, enter *java -jar war-card-game.jar -y* to run the game without user input for each round.
