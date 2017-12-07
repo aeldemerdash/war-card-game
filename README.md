@@ -8,7 +8,7 @@ A simple console-based card game of chance called 'War' written in Java 8.
 * **98%** test code coverage measured with [JaCoCo](http://www.jacoco.org/).
 * Unit tests written with the powerful [TestNG](http://testng.org/doc/) framework.
 * Test objects mocked up with [Mockito](http://site.mockito.org/) for easy testing of collaborator scenarios.
-* Build and Dependencies managed with [Apache Maven](https://maven.apache.org/).
+* Build and dependencies managed with [Apache Maven](https://maven.apache.org/).
 * Hosted on [GitHub](https://github.com/rpaulkennedy).
 * Built with [Travis CI](https://travis-ci.org) continuous integration.
 
