@@ -9,10 +9,9 @@
 	<packaging>jar</packaging>
 	<organization>
 		<name>R. Paul Kennedy</name>
+		<url>https://github.com/rpaulkennedy</url>
 	</organization>
-	<issueManagement>
-		<system>Email</system>
-	</issueManagement>
+	<url>https://github.com/rpaulkennedy/war-card-game</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -78,22 +77,23 @@
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.11</version>
-				<configuration>
-					<message>Creating site for ${project.version}</message>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>site</phase>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.11</version>
+                <configuration>
+                    <message>Creating site for ${project.version}</message>
+                    <server>github</server>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 	<reporting>
