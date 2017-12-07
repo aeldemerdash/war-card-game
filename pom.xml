@@ -134,4 +134,11 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<issueManagement>
+		<url>https://github.com/rpaulkennedy/war-card-game/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
+	<scm>
+		<url>https://github.com/rpaulkennedy/war-card-game.git</url>
+	</scm>
 </project>
