@@ -4,7 +4,7 @@
 A simple console-based card game of chance called 'War' written in Java 8.  
 
 ## Features
-* Extensive use of [Java 8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html) Lambdas as Streams for performance and readability.
+* Extensive use of [Java 8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html) Lambdas and Streams for performance and readability.
 * **98%** test code coverage measured with [JaCoCo](http://www.jacoco.org/).
 * Unit tests written with the powerful [TestNG](http://testng.org/doc/) framework.
 * Test objects mocked up with [Mockito](http://site.mockito.org/) for easy testing of of collaborator scenarios.
