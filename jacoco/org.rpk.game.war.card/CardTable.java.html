@@ -12,52 +12,52 @@ import java.util.Stack;
 public class CardTable {
 	
 	/** Cards in play for Player 1 */
-	protected final Stack&lt;Card&gt; player1Cards;
+	protected final Stack&lt;Card&gt; player1CardStack;
 	
 	/** Cards in play for Player 2 */
-	protected final Stack&lt;Card&gt; player2Cards;
+	protected final Stack&lt;Card&gt; player2CardStack;
 	
 	/** 
 	 * Creates a new card table with places 
 	 * for cards in play for both players.
 	 */
 <span class="fc" id="L24">	public CardTable() {</span>
-<span class="fc" id="L25">		player1Cards = new Stack&lt;&gt;();</span>
-<span class="fc" id="L26">		player2Cards = new Stack&lt;&gt;();</span>
+<span class="fc" id="L25">		this.player1CardStack = new Stack&lt;&gt;();</span>
+<span class="fc" id="L26">		this.player2CardStack = new Stack&lt;&gt;();</span>
 <span class="fc" id="L27">	}</span>
 
 	/** @return All played cards on table for Player 1 WITHOUT removing them. */
-	public Stack&lt;Card&gt; getPlayer1Cards() {
-<span class="fc" id="L31">		return player1Cards;</span>
+	public Stack&lt;Card&gt; getPlayer1CardStack() {
+<span class="fc" id="L31">		return player1CardStack;</span>
 	}
 
 	/** @return All played cards on table for Player 2 WITHOUT removing them. */
-	public Stack&lt;Card&gt; getPlayer2Cards() {
-<span class="fc" id="L36">		return player2Cards;</span>
+	public Stack&lt;Card&gt; getPlayer2CardStack() {
+<span class="fc" id="L36">		return player2CardStack;</span>
 	}
 	
 	/** @return All played cards on table for Player 1, REMOVING them from the table. */
-	public List&lt;Card&gt; takePlayer1Cards() {
-<span class="fc" id="L41">		final List&lt;Card&gt; player1CardsList = new ArrayList&lt;&gt;(getPlayer1Cards());</span>
-<span class="fc" id="L42">		getPlayer1Cards().clear();</span>
+	public List&lt;Card&gt; takePlayer1CardStack() {
+<span class="fc" id="L41">		final List&lt;Card&gt; player1CardsList = new ArrayList&lt;&gt;(getPlayer1CardStack());</span>
+<span class="fc" id="L42">		getPlayer1CardStack().clear();</span>
 <span class="fc" id="L43">		return player1CardsList;</span>
 	}
 
 	/** @return All played cards on table for Player 2, REMOVING them from the table. */
-	public List&lt;Card&gt; takePlayer2Cards() {
-<span class="fc" id="L48">		final List&lt;Card&gt; player2CardsList = new ArrayList&lt;&gt;(getPlayer2Cards());</span>
-<span class="fc" id="L49">		getPlayer2Cards().clear();</span>
+	public List&lt;Card&gt; takePlayer2CardStack() {
+<span class="fc" id="L48">		final List&lt;Card&gt; player2CardsList = new ArrayList&lt;&gt;(getPlayer2CardStack());</span>
+<span class="fc" id="L49">		getPlayer2CardStack().clear();</span>
 <span class="fc" id="L50">		return player2CardsList;</span>
 	}
 	
 	/** @return The currently played card for Player 1 WITHOUT removing it. */
-	public Card peekPlayer1Card() {
-<span class="fc" id="L55">		return player1Cards.peek();</span>
+	public Card peekPlayer1CardStack() {
+<span class="fc" id="L55">		return player1CardStack.peek();</span>
 	}
 	
 	/** @return The currently played card for Player 2 WITHOUT removing it. */
-	public Card peekPlayer2Card() {
-<span class="fc" id="L60">		return player2Cards.peek();</span>
+	public Card peekPlayer2CardStack() {
+<span class="fc" id="L60">		return player2CardStack.peek();</span>
 	}
 	
 }

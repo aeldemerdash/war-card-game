@@ -71,14 +71,14 @@ import org.rpk.game.war.Rules.Result;
 <span class="fc" id="L71">	}</span>
 
 	protected static void playCards(GameSession session) {
-<span class="fc" id="L74">		session.getPlayer1().playCard(session.getTable().getPlayer1Cards());</span>
-<span class="fc" id="L75">		session.getPlayer2().playCard(session.getTable().getPlayer2Cards());</span>
+<span class="fc" id="L74">		session.getPlayer1().playCard(session.getTable().getPlayer1CardStack());</span>
+<span class="fc" id="L75">		session.getPlayer2().playCard(session.getTable().getPlayer2CardStack());</span>
 <span class="fc" id="L76">	}</span>
 
 	protected static void printCardValues(GameSession session) {
 <span class="fc" id="L79">		print(&quot;Cards Played:&quot;);</span>
-<span class="fc" id="L80">		print(&quot;%s {%s} | %s {%s}&quot;, session.getPlayer1().getName(), session.getTable().peekPlayer1Card(),</span>
-<span class="fc" id="L81">				session.getPlayer2().getName(), session.getTable().peekPlayer2Card());</span>
+<span class="fc" id="L80">		print(&quot;%s {%s} | %s {%s}&quot;, session.getPlayer1().getName(), session.getTable().peekPlayer1CardStack(),</span>
+<span class="fc" id="L81">				session.getPlayer2().getName(), session.getTable().peekPlayer2CardStack());</span>
 <span class="fc" id="L82">	}</span>
 	
 	protected static void evaluateRound(GameSession session) {
@@ -129,8 +129,8 @@ import org.rpk.game.war.Rules.Result;
 <span class="fc" id="L129">	}</span>
 	
 	protected static void play3Cards(GameSession session) {
-<span class="fc" id="L132">		session.getPlayer1().playThreeCards(session.getTable().getPlayer1Cards());</span>
-<span class="fc" id="L133">		session.getPlayer2().playThreeCards(session.getTable().getPlayer2Cards());		</span>
+<span class="fc" id="L132">		session.getPlayer1().playThreeCards(session.getTable().getPlayer1CardStack());</span>
+<span class="fc" id="L133">		session.getPlayer2().playThreeCards(session.getTable().getPlayer2CardStack());		</span>
 <span class="fc" id="L134">	}</span>
 	
 	protected static void printOutro(GameSession session) {

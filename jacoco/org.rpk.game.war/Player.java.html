@@ -69,7 +69,7 @@ public class Player {
 	public void collectCards(CardTable table) {
 		// Take cards
 <span class="fc" id="L71">		final List&lt;Card&gt; wonCards = </span>
-<span class="fc" id="L72">			Arrays.asList(table.takePlayer1Cards(), table.takePlayer2Cards())</span>
+<span class="fc" id="L72">			Arrays.asList(table.takePlayer1CardStack(), table.takePlayer2CardStack())</span>
 <span class="fc" id="L73">				.parallelStream()</span>
 <span class="fc" id="L74">				.flatMap(x -&gt; x.parallelStream())</span>
 <span class="fc" id="L75">				.collect(toList());</span>
