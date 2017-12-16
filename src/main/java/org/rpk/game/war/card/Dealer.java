@@ -1,9 +1,9 @@
 package org.rpk.game.war.card;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
+import java.util.stream.IntStream;
 
 import org.rpk.game.war.Player;
 
@@ -29,14 +29,11 @@ public class Dealer {
 	 */
 	public void deal(Player... players) {
 		Queue<Player> playerQueue = new ArrayDeque<>(Arrays.asList(players));
-		new ArrayList<>(deck.getCards())
-			.stream()
-			.forEachOrdered(card -> {
-				Player player = playerQueue.remove();
-				player.getHand().add(card);
-				deck.getCards().remove(0);
-				playerQueue.add(player);
-			});
+		IntStream.range(0, deck.getCards().size()).forEach(i -> {
+			Player player = playerQueue.remove();
+			player.getHand().add(deck.getCards().remove(0));
+			playerQueue.add(player);			
+		});
 	}
 	
 }
