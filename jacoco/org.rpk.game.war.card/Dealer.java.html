@@ -29,12 +29,15 @@ public class Dealer {
 	 */
 	public void deal(Player... players) {
 <span class="fc" id="L31">		Queue&lt;Player&gt; playerQueue = new ArrayDeque&lt;&gt;(Arrays.asList(players));</span>
-<span class="fc" id="L32">		new ArrayList&lt;&gt;(deck.getCards()).stream().forEachOrdered(card -&gt; {</span>
-<span class="fc" id="L33">			Player player = playerQueue.remove();</span>
-<span class="fc" id="L34">			player.getHand().add(card);</span>
-<span class="fc" id="L35">			deck.getCards().remove(0);</span>
-<span class="fc" id="L36">			playerQueue.add(player);</span>
-<span class="fc" id="L37">		});</span>
-<span class="fc" id="L38">	}</span>
+<span class="fc" id="L32">		new ArrayList&lt;&gt;(deck.getCards())</span>
+<span class="fc" id="L33">			.stream()</span>
+<span class="fc" id="L34">			.forEachOrdered(card -&gt; {</span>
+<span class="fc" id="L35">				Player player = playerQueue.remove();</span>
+<span class="fc" id="L36">				player.getHand().add(card);</span>
+<span class="fc" id="L37">				deck.getCards().remove(0);</span>
+<span class="fc" id="L38">				playerQueue.add(player);</span>
+<span class="fc" id="L39">			});</span>
+<span class="fc" id="L40">	}</span>
+	
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
