@@ -41,4 +41,5 @@ public class GameSessionTest {
 	public void isSkipPlayerInput() {
 		assertTrue(session.isSkipPlayerInput());
 	}
+	
 }

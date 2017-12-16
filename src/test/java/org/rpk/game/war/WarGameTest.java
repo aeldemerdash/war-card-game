@@ -29,4 +29,5 @@ public class WarGameTest {
 	public void evaluateRoundNull() {
 		WarGame.evaluateRound(null, null);
 	}
+	
 }

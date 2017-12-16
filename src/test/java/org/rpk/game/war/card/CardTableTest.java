@@ -82,4 +82,5 @@ public class CardTableTest {
 		table.getPlayer2CardStack().pop();
 		assertSame(table.peekPlayer2CardStack(), card1);
 	}
+	
 }

@@ -119,4 +119,5 @@ public class RulesTest {
 				.collect(Collectors.toList())
 				.size(), 0);
 	}
+	
 }

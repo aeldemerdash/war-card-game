@@ -108,6 +108,9 @@ public class CardTest {
 	public void hashCodeTest() {
 		Stream.of(card1, card2, card3, card4)
 			.parallel()
-			.forEach(card -> assertEquals(card.hashCode(), card.getSymbol().hashCode()));
+			.forEach(card -> assertEquals(
+				card.hashCode()
+				, card.getSymbol().hashCode()));
 	}
+	
 }

@@ -31,4 +31,5 @@ public enum Rank {
 	public char symbol() {
 		return this.symbol;
 	}
+	
 }

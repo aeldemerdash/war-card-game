@@ -142,7 +142,7 @@ public class WarGame {
 	
 	/* Whether the game waits for player input, or auto-plays the entire game. */
 	protected static boolean isSkipPlayerInput(String[] args) {
-		return Stream.of(args).parallel().anyMatch(s -> "-y".equals(s));
+		return Stream.of(args).anyMatch(s -> "-y".equals(s));
 	}
 
 }
