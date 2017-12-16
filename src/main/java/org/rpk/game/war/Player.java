@@ -3,13 +3,13 @@ package org.rpk.game.war;
 
 import static java.util.stream.Collectors.toList;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.rpk.game.war.card.Card;
 import org.rpk.game.war.card.CardTable;
@@ -69,8 +69,8 @@ public class Player {
 	public void collectCards(CardTable table) {
 		// Take cards
 		final List<Card> wonCards = 
-			Arrays.asList(table.takePlayer1CardStack(), table.takePlayer2CardStack())
-				.parallelStream()
+			Stream.of(table.takePlayer1CardStack(), table.takePlayer2CardStack())
+				.parallel()
 				.flatMap(x -> x.parallelStream())
 				.collect(toList());
 		

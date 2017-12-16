@@ -1,23 +1,24 @@
 package org.rpk.game.war;
 
 import static org.mockito.Mockito.when;
-import static org.rpk.game.war.Rules.Result.*;
-import static org.rpk.game.war.card.Rank.*;
-import static org.rpk.game.war.card.Suit.*;
+import static org.rpk.game.war.Rules.Result.Player1Won;
+import static org.rpk.game.war.Rules.Result.Player2Won;
+import static org.rpk.game.war.Rules.Result.Tie;
+import static org.rpk.game.war.card.Rank.Ace;
+import static org.rpk.game.war.card.Rank.Deuce;
+import static org.rpk.game.war.card.Suit.Diamonds;
+import static org.rpk.game.war.card.Suit.Spades;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertSame;
 import static org.testng.Assert.assertTrue;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpk.game.war.GameSession;
-import org.rpk.game.war.Player;
-import org.rpk.game.war.Rules;
 import org.rpk.game.war.Rules.Result;
 import org.rpk.game.war.card.Card;
 import org.rpk.game.war.card.CardTable;
@@ -110,9 +111,8 @@ public class RulesTest {
 	}
 	
 	public void valueOfRulesResult() {
-			assertEquals(
-				Arrays.asList(Result.values())
-				.parallelStream()
+			assertEquals(Stream.of(Result.values())
+				.parallel()
 				.map(result -> result.name())
 				.map(name -> Result.valueOf(name))
 				.filter(result -> null == result)

@@ -1,15 +1,13 @@
 package org.rpk.game.war;
 
-import org.testng.annotations.Test;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.rpk.game.war.Player.Player1Name;
 import static org.rpk.game.war.Player.Player2Name;
 import static org.testng.Assert.assertEquals;
 
-import org.rpk.game.war.GameSession;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  * Unit test.

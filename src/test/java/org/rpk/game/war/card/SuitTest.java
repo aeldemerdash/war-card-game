@@ -4,13 +4,12 @@ package org.rpk.game.war.card;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-import org.rpk.game.war.card.Suit;
 import org.testng.annotations.Test;
 
 /**
@@ -32,8 +31,8 @@ public class SuitTest {
 
 	public void valueOf() {
 		assertEquals(
-			Arrays.asList(Suit.values())
-			.parallelStream()
+			Stream.of(Suit.values())
+			.parallel()
 			.map(suit -> suit.name())
 			.map(name -> Suit.valueOf(name))
 			.filter(suit -> null == suit)

@@ -5,14 +5,12 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
 import java.util.Queue;
+import java.util.stream.Stream;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.rpk.game.war.Player;
-import org.rpk.game.war.card.Card;
-import org.rpk.game.war.card.Dealer;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -39,8 +37,8 @@ public class DealerTest {
 
 	public void deal() {
 		dealer.deal(player1, player2);
-		Arrays.asList(player1, player2)
-			.parallelStream()
+		Stream.of(player1, player2)
+			.parallel()
 			.forEach(player -> verify(player.getHand(), times(52/2))
 				.add(any(Card.class)));
 	}

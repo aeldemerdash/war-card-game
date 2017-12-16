@@ -2,14 +2,19 @@ package org.rpk.game.war.card;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.rpk.game.war.card.Rank.*;
-import static org.rpk.game.war.card.Suit.*;
+import static org.rpk.game.war.card.Rank.Ace;
+import static org.rpk.game.war.card.Rank.Deuce;
+import static org.rpk.game.war.card.Rank.Four;
+import static org.rpk.game.war.card.Rank.Ten;
+import static org.rpk.game.war.card.Suit.Clubs;
+import static org.rpk.game.war.card.Suit.Diamonds;
+import static org.rpk.game.war.card.Suit.Hearts;
+import static org.rpk.game.war.card.Suit.Spades;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import org.rpk.game.war.card.Card;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -71,15 +76,15 @@ public class CardTest {
 
 	/** Value should be the ordinal of the rank. */
 	public void getValue() {
-		Arrays.asList(card1, card2, card3, card4)
-			.parallelStream()
+		Stream.of(card1, card2, card3, card4)
+			.parallel()
 			.forEach(card -> assertEquals(card.getValue(), card.getRank().ordinal()));
 	}
 
 	/** toString should return the symbol */
 	public void toStringTest() {
-		Arrays.asList(card1, card2, card3, card4)
-			.parallelStream()
+		Stream.of(card1, card2, card3, card4)
+			.parallel()
 			.forEach(card -> assertEquals(card.toString(), card.getSymbol()));
 	}
 	
@@ -101,8 +106,8 @@ public class CardTest {
 	
 	/** Hashcode is the same hashcode as the symbol */
 	public void hashCodeTest() {
-		Arrays.asList(card1, card2, card3, card4)
-			.parallelStream()
+		Stream.of(card1, card2, card3, card4)
+			.parallel()
 			.forEach(card -> assertEquals(card.hashCode(), card.getSymbol().hashCode()));
 	}
 }

@@ -1,7 +1,5 @@
 package org.rpk.game.war;
 
-import org.rpk.game.war.WarGame;
-import org.rpk.game.war.WarGameRunner;
 import org.testng.annotations.Test;
 
 /**

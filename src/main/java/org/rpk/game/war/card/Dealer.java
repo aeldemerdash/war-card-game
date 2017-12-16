@@ -29,11 +29,14 @@ public class Dealer {
 	 */
 	public void deal(Player... players) {
 		Queue<Player> playerQueue = new ArrayDeque<>(Arrays.asList(players));
-		new ArrayList<>(deck.getCards()).stream().forEachOrdered(card -> {
-			Player player = playerQueue.remove();
-			player.getHand().add(card);
-			deck.getCards().remove(0);
-			playerQueue.add(player);
-		});
+		new ArrayList<>(deck.getCards())
+			.stream()
+			.forEachOrdered(card -> {
+				Player player = playerQueue.remove();
+				player.getHand().add(card);
+				deck.getCards().remove(0);
+				playerQueue.add(player);
+			});
 	}
+	
 }

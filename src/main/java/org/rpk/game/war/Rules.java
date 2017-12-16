@@ -1,9 +1,11 @@
 package org.rpk.game.war;
 
 
-import static org.rpk.game.war.Rules.Result.*;
+import static org.rpk.game.war.Rules.Result.Player1Won;
+import static org.rpk.game.war.Rules.Result.Player2Won;
+import static org.rpk.game.war.Rules.Result.Tie;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
 import org.rpk.game.war.card.Card;
 
@@ -58,9 +60,7 @@ public class Rules {
 	 * @return Whether any Player in {@code players} has lost.
 	 */
 	protected static boolean playerHasLost(Player... players) {
-		return Arrays
-			.asList(players)
-			.stream()
+		return Stream.of(players)
 			.parallel()
 			.anyMatch(player -> player.getHand().size() == 0);
 	}
@@ -70,9 +70,7 @@ public class Rules {
 	 * @return Any player with any cards left.
 	 */
 	public static Player getWinner(Player... players) {
-		return Arrays
-			.asList(players)
-			.stream()
+		return Stream.of(players)
 			.parallel()
 			.filter(player -> player.getHand().size() > 0)
 			.findAny()

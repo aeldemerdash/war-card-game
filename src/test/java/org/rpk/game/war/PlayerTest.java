@@ -1,13 +1,13 @@
 package org.rpk.game.war;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.rpk.game.war.Player.Player1Name;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +15,6 @@ import java.util.Stack;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpk.game.war.Player;
 import org.rpk.game.war.card.Card;
 import org.rpk.game.war.card.CardTable;
 import org.testng.annotations.BeforeMethod;

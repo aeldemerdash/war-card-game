@@ -9,10 +9,8 @@ import static org.testng.Assert.assertNotEquals;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Stream;
 
-import org.rpk.game.war.card.Deck;
-import org.rpk.game.war.card.Rank;
-import org.rpk.game.war.card.Suit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -51,16 +49,16 @@ public class DeckTest {
 		// Set of all rank symbols
 		final Set<Character> rankSymbols =
 			unmodifiableSet(
-				Arrays.asList(Rank.values())
-					.parallelStream()
+				Stream.of(Rank.values())
+					.parallel()
 					.map(rank -> rank.symbol())
 					.collect(toSet()));
 			
 		// Set of all suit symbols
 		final Set<Character> suitSymbols = 
 			unmodifiableSet(
-				Arrays.asList(Suit.values())
-					.parallelStream()
+				Stream.of(Suit.values())
+					.parallel()
 					.map(suit -> suit.symbol())
 					.collect(toSet()));
 		

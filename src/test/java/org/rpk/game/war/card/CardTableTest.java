@@ -10,8 +10,6 @@ import java.util.List;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.rpk.game.war.card.Card;
-import org.rpk.game.war.card.CardTable;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

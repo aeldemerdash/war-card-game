@@ -3,13 +3,12 @@ package org.rpk.game.war.card;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-import org.rpk.game.war.card.Rank;
 import org.testng.annotations.Test;
 
 /**
@@ -31,8 +30,8 @@ public class RankTest {
 
 	public void valueOf() {
 		assertEquals(
-			Arrays.asList(Rank.values())
-			.parallelStream()
+			Stream.of(Rank.values())
+			.parallel()
 			.map(rank -> rank.name())
 			.map(name -> Rank.valueOf(name))
 			.filter(rank -> null == rank)

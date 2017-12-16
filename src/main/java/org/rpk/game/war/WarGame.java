@@ -2,9 +2,8 @@ package org.rpk.game.war;
 
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import org.rpk.game.war.Rules;
 import org.rpk.game.war.Rules.Result;
 
 /**
@@ -143,7 +142,7 @@ public class WarGame {
 	
 	/* Whether the game waits for player input, or auto-plays the entire game. */
 	protected static boolean isSkipPlayerInput(String[] args) {
-		return Arrays.asList(args).parallelStream().anyMatch(s -> "-y".equals(s));
+		return Stream.of(args).parallel().anyMatch(s -> "-y".equals(s));
 	}
 
 }
