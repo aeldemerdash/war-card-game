@@ -1,8 +1,5 @@
 package org.rpk.game.war.card;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
 import static java.util.stream.IntStream.range;
 
 import org.rpk.game.war.Player;
